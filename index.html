@@ -3,80 +3,71 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Telegram Clicker</title>
+<title>Бобик Кликер</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-
 <body>
 
 <div class="app">
 
 <header>
-<h1>💎 Telegram Clicker</h1>
-<div id="rank">Rank: Beginner</div>
+<h1>🐶 Бобик Кликер</h1>
+<div id="rank">Новичок</div>
 <div class="rankbar"><div id="rankBar"></div></div>
 </header>
 
-<div id="clickerPage" class="page active">
-
-<div class="score">
+<div id="clickPage" class="page active">
+<div class="coinBox">
 <h2 id="coins">0</h2>
-<p>Coins</p>
+<p>Косточек</p>
 </div>
-
-<button id="clickBtn">⚡</button>
-
+<button id="clickBtn">
+<img src="https://upload.wikimedia.org/wikipedia/en/d/d0/Doge_meme_icon.png" alt="Бобик">
+</button>
 <div class="stats">
-<p>Energy: <span id="energy">100</span></p>
-<p>Per Click: <span id="perClick">1</span></p>
+<p>⚡ Энергия: <span id="energy">100</span></p>
+<p>💪 Сила клика: <span id="perClick">1</span></p>
 </div>
-
 </div>
 
 <div id="upgradePage" class="page">
-
-<h2>🚀 Upgrades</h2>
-
-<div class="upgrade" onclick="buyUpgrade()">
-<span>Increase Click</span>
-<span id="upgradePrice">10</span>
+<h2>🚀 Улучшения</h2>
+<div class="card" onclick="buyClick()"><span>Улучшить клик</span><span id="clickPrice">10</span></div>
+<div class="card" onclick="buyAuto()"><span>Авто-кликер</span><span>200</span></div>
 </div>
 
-<div class="upgrade" onclick="buyAuto()">
-<span>Auto Clicker</span>
-<span>200</span>
-</div>
-
+<div id="leaderPage" class="page">
+<h2>🏆 Лидерборд</h2>
+<div id="leaderboard"></div>
 </div>
 
 <div id="profilePage" class="page">
-
-<h2>👤 Profile</h2>
-
-<div class="profileBox">
-<p>User:</p>
-<h3 id="username">Player</h3>
+<h2>👤 Профиль</h2>
+<div class="profileAvatar">
+<img id="avatar" src="" alt="Аватар">
+</div>
+<div class="card"><p>Игрок</p><h3 id="username">Player</h3></div>
+<div class="card"><p>Ваши косточки</p><h3 id="profileCoins">0</h3></div>
+<div class="card"><p>Статус</p><h3 id="status">Игрок</h3></div>
 </div>
 
-<div class="profileBox">
-<p>Coins:</p>
-<h3 id="profileCoins">0</h3>
-</div>
-
-<button onclick="share()">Share</button>
-
+<div id="adminPage" class="page">
+<h2>🛠 Админка</h2>
+<div class="card"><p>ID игрока</p><input id="giveId" type="number"></div>
+<div class="card"><p>Выдать косточки</p><input id="giveCoins" type="number"></div>
+<button onclick="giveCoins()">Выдать</button>
 </div>
 
 <div class="nav">
-<button onclick="openPage('clickerPage')">🎮</button>
-<button onclick="openPage('upgradePage')">🚀</button>
-<button onclick="openPage('profilePage')">👤</button>
-</div>
-
+<button onclick="openPage('clickPage')"><i class="fa-solid fa-gamepad"></i></button>
+<button onclick="openPage('upgradePage')"><i class="fa-solid fa-rocket"></i></button>
+<button onclick="openPage('leaderPage')"><i class="fa-solid fa-trophy"></i></button>
+<button onclick="openPage('profilePage')"><i class="fa-solid fa-user"></i></button>
+<button id="adminBtn" onclick="openPage('adminPage')" style="display:none"><i class="fa-solid fa-gears"></i></button>
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
