@@ -6,7 +6,7 @@ const userId=user?.id||Math.floor(Math.random()*999999);
 document.getElementById("username").innerText=username;
 if(avatar)document.getElementById("avatar").src=avatar;
 
-const ADMINS=[123456789]; // <-- вставь сюда свой Telegram ID
+const ADMINS=[8795006636]; // <-- вставь сюда свой Telegram ID
 if(ADMINS.includes(userId)){
   document.getElementById("adminBtn").style.display="block";
   document.getElementById("status").innerText="Админ";
